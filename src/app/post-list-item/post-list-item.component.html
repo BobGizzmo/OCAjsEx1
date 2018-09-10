@@ -1,0 +1,21 @@
+<li [ngClass]="{ 'list-group-item': true,
+				 'list-group-item-success': lovesIt > hateIt,
+				 'list-group-item-danger': hateIt > lovesIt }">
+	<header class="d-flex justify-content-between">			 
+		<h2 class="">{{ title }}</h2>
+		<i class="">{{ created_at | date: 'MMMM d, y' }}</i>
+	</header>
+	<section class="d-flex">
+		<img src="{{ img_src }}" alt="{{ title }}">
+		<p class="ml-3">{{ content }}</p>
+	</section>
+	<footer class="mt-2 d-flex justify-content-end">
+		<button class="btn btn-success"
+				(click)="addLovesOrShovelHit(true)">Love it 
+			<span class="badge badge-light ml-1">{{ lovesIt }}</span>
+		</button>
+		<button class="btn btn-danger ml-2"
+				(click)="addLovesOrShovelHit(false)">Don't love it
+			<span class="badge badge-light ml-1">{{ hateIt }}</span></button>
+	</footer>
+</li>
