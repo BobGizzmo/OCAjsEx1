@@ -3,17 +3,40 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "OCAjdEx1": {
+    "OCAjsFP": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
       "prefix": "app",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss",
+          "spec": false
+        },
+        "@schematics/angular:class": {
+          "spec": false
+        },
+        "@schematics/angular:directive": {
+          "spec": false
+        },
+        "@schematics/angular:guard": {
+          "spec": false
+        },
+        "@schematics/angular:module": {
+          "spec": false
+        },
+        "@schematics/angular:pipe": {
+          "spec": false
+        },
+        "@schematics/angular:service": {
+          "spec": false
+        }
+      },
       "targets": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/OCAjdEx1",
+            "outputPath": "dist/OCAjsFP",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -23,8 +46,8 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/bootstrap/dist/css/bootstrap.css",
-              "src/styles.css"
+              "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           },
@@ -51,18 +74,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "OCAjdEx1:build"
+            "browserTarget": "OCAjsFP:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "OCAjdEx1:build:production"
+              "browserTarget": "OCAjsFP:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "OCAjdEx1:build"
+            "browserTarget": "OCAjsFP:build"
           }
         },
         "test": {
@@ -73,7 +96,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": [],
             "assets": [
@@ -96,7 +119,7 @@
         }
       }
     },
-    "OCAjdEx1-e2e": {
+    "OCAjsFP-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "targets": {
@@ -104,11 +127,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "OCAjdEx1:serve"
+            "devServerTarget": "OCAjsFP:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "OCAjdEx1:serve:production"
+              "devServerTarget": "OCAjsFP:serve:production"
             }
           }
         },
@@ -124,5 +147,5 @@
       }
     }
   },
-  "defaultProject": "OCAjdEx1"
+  "defaultProject": "OCAjsFP"
 }

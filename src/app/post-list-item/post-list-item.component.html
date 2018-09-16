@@ -1,21 +1,24 @@
 <li [ngClass]="{ 'list-group-item': true,
+          'row': true,
 				 'list-group-item-success': lovesIt > hateIt,
 				 'list-group-item-danger': hateIt > lovesIt }">
-	<header class="d-flex justify-content-between">			 
-		<h2 class="">{{ title }}</h2>
-		<i class="">{{ created_at | date: 'MMMM d, y' }}</i>
+	<header class="col-md-12">
+		<h2 class="col-md-6">{{ title }}</h2>
+		<i class="col-md-offset-4 col-md-2">{{ created_at | date: 'MMMM d, y' }}</i>
 	</header>
-	<section class="d-flex">
-		<img src="{{ img_src }}" alt="{{ title }}">
-		<p class="ml-3">{{ content }}</p>
+	<section class="col-md-12">
+		<img class="col-md-4" src="{{ img_src }}" alt="{{ title }}">
+		<p class="col-md-offset-1 col-md-6 text-wrap" style="overflow-wrap:break-word;">{{ content }}</p>
 	</section>
-	<footer class="mt-2 d-flex justify-content-end">
+	<footer class="col-md-12" style="margin-top: 2%">
 		<button class="btn btn-success"
 				(click)="addLovesOrShovelHit(true)">Love it 
 			<span class="badge badge-light ml-1">{{ lovesIt }}</span>
 		</button>
-		<button class="btn btn-danger ml-2"
+		<button class="btn btn-danger" style="margin-left: 1%;"
 				(click)="addLovesOrShovelHit(false)">Don't love it
 			<span class="badge badge-light ml-1">{{ hateIt }}</span></button>
+      <button class="btn btn-danger pull-right" (click)="onDeletePost(+index)">Supprimer</button>
+      <a routerLink="/blog/{{ index }}" class="btn btn-primary pull-right">Modifier</a>
 	</footer>
 </li>

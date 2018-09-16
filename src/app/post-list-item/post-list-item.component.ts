@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import {BlogPostService} from '../services/blog-post.service';
+import {Post} from '../models/Post.model';
 
 @Component({
   selector: 'app-post-list-item',
@@ -7,14 +9,15 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class PostListItemComponent implements OnInit {
 
-	@Input() title : string;
-	@Input() content : string;
-	@Input() lovesIt : number;
-	@Input() hateIt : number;
-	@Input() img_src : string;
-	created_at : Date;
+	@Input() title: string;
+	@Input() content: string;
+	@Input() lovesIt: number;
+	@Input() hateIt: number;
+	@Input() img_src: string;
+	@Input() index: number;
+	created_at: Date;
 
-	constructor() {
+	constructor(private blogPostService: BlogPostService) {
 		this.created_at = new Date();
 	}
 
@@ -24,4 +27,8 @@ export class PostListItemComponent implements OnInit {
 	addLovesOrShovelHit(bool) {
 		bool ? this.lovesIt ++ : this.hateIt ++;
 	}
+
+  onDeletePost(post: number) {
+    this.blogPostService.deletePost(post);
+  }
 }
